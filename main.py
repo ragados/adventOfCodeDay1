@@ -16,7 +16,6 @@ def increase_counter(list_of_nums):
     for item in range(1, len(list_of_nums)):
         if list_of_nums[item] > list_of_nums[item - 1]:
             depth_measure_increase += 1
-            print(list_of_nums[item], depth_measure_increase, list_of_nums[item-1])
     return depth_measure_increase
 
 
@@ -45,4 +44,5 @@ test = [
     180
 ]
 
+print(increase_counter(depths))
 print(mv_avg_increase_counter(depths))
