@@ -1,6 +1,6 @@
-# Advent of Code Day 1
+# Advent of Code Day 2
 # Solution by Dev Sodagar
-# 2021-12-01
+# 2021-12-02
 
 locations = []
 
@@ -31,7 +31,6 @@ def sub_location(list_of_nums):
     return x_pos * y_pos
 
 
-
 # Track the submarine's journey through the depths with aim:
 def sub_aim_location(list_of_nums):
     x_pos = 0
@@ -55,12 +54,6 @@ def sub_aim_location(list_of_nums):
     return x_pos * y_pos
 
 
-# forward 5 adds 5 to your horizontal position, a total of 5. Because your aim is 0, your depth does not change.
-# down 5 adds 5 to your aim, resulting in a value of 5.
-# forward 8 adds 8 to your horizontal position, a total of 13. Because your aim is 5, your depth increases by 8*5=40.
-# up 3 decreases your aim by 3, resulting in a value of 2.
-# down 8 adds 8 to your aim, resulting in a value of 10.
-# forward 2 adds 2 to your horizontal position, a total of 15. Because your aim is 10, your depth increases by 2*10=20 to a total of 60.
 test = [
     "forward 5",
     "down 5",
