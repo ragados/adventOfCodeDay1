@@ -66,18 +66,48 @@ def power_consumption(list_of_nums):
 # Calculate the power consumption from sub diagnostic report:
 def air_consumption(list_of_nums):
     report_array = list_to_2dlist(list_of_nums)
-    length = len(list_of_nums)
-    oxy = []
-    co2 = []
-    for time in range(len(report_array[1])):
+    oxy = report_array
+    co2 = report_array
+    for col_num in range(len(report_array[1])):
         i = 0
-        for row in report_array: ### ###
-            i = i + row.pop(0)
-        oxy_digit = round(i / length)
-        report_array = report_array where report_array[][time] = oxy_digit
-    print(oxy, co2)
-    power = bin_array_to_decimal(oxy) * bin_array_to_decimal(co2)
-    print(power)
+        oxy_array = []
+        for row in oxy:
+            i = i + row[col_num]
+        length = len(oxy)
+        if (i / length) == 0.5:
+            oxy_digit = 1
+        else:
+            oxy_digit = round(i / length)
+#        report_array = [row for row in report_array if row[time] == oxy_digit]
+        for row in oxy:
+            if row[col_num] == oxy_digit:
+                oxy_array.append(row)
+        oxy = oxy_array
+        if len(oxy) == 1:
+            continue
+    for col_num in range(len(report_array[1])):
+        i = 0
+        co2_array = []
+        for row in co2:
+            i = i + row[col_num]
+        length = len(co2)
+        if (i / length) == 0.5:
+            co2_digit = 1
+        else:
+            co2_digit = round(i / length)
+        print(i, length)
+        print("Digit: ", co2_digit)
+        for row in co2:
+            if row[col_num] != co2_digit:
+                co2_array.append(row)
+        co2 = co2_array
+        print(co2)
+        if len(co2) == 1:
+            break
+    print("Oxy: ", oxy)
+    print("CO2: ", co2)
+    power = bin_array_to_decimal(oxy[0]) * bin_array_to_decimal(co2[0])
+    print("Power: ", power)
 
 
 # Track the submarine's journey through the depths with aim:
@@ -133,7 +163,6 @@ test2 = [
     [0, 1, 0, 1, 0]
 ]
 
-
 # print(diagnostic)
-print(power_consumption(diagnostic))
+air_consumption(diagnostic)
 # print(list_to_2dlist(diagnostic))
