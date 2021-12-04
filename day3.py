@@ -23,14 +23,6 @@ def list_to_2dlist(list_of_nums):
 
 
 # Convert simple list into a pivoted array:
-# def list_to_inv_list(list_of_nums):
-#     report_array = []
-#     for item in range(len(list_of_nums)):
-#         report_array.append(list_of_nums[item].pop(0))
-#     print(report_array)
-
-
-# Convert simple list into a pivoted array:
 def bin_array_to_decimal(list_of_bins):
     dec_val = 0
     length = len(list_of_bins)
@@ -63,11 +55,12 @@ def power_consumption(list_of_nums):
     print(power)
 
 
-# Calculate the power consumption from sub diagnostic report:
+# Calculate the air consumption from sub diagnostic report:
 def air_consumption(list_of_nums):
     report_array = list_to_2dlist(list_of_nums)
     oxy = report_array
     co2 = report_array
+    # Oxygen calculation
     for col_num in range(len(report_array[1])):
         i = 0
         oxy_array = []
@@ -85,6 +78,7 @@ def air_consumption(list_of_nums):
         oxy = oxy_array
         if len(oxy) == 1:
             continue
+    #CO2 calculation
     for col_num in range(len(report_array[1])):
         i = 0
         co2_array = []
@@ -108,29 +102,6 @@ def air_consumption(list_of_nums):
     print("CO2: ", co2)
     power = bin_array_to_decimal(oxy[0]) * bin_array_to_decimal(co2[0])
     print("Power: ", power)
-
-
-# Track the submarine's journey through the depths with aim:
-def sub_aim_location(list_of_nums):
-    x_pos = 0
-    y_pos = 0
-    aim = 0
-    for item in range(len(list_of_nums)):
-        current_move = list_of_nums[item]
-        magnitude = int(current_move[-1])
-        if "forward" in current_move:
-            x_pos = x_pos + magnitude
-            y_pos = y_pos + (aim * magnitude)
-            print(current_move, x_pos, aim)
-        elif "down" in current_move:
-            aim = aim + magnitude
-            print(current_move, y_pos, aim)
-        elif "up" in current_move:
-            aim = aim - magnitude
-            print(current_move, y_pos, aim)
-        else:
-            print("Something is wrong.")
-    return x_pos * y_pos
 
 
 test = [
