@@ -16,7 +16,7 @@ with open("input4.txt", "r", encoding="UTF-8") as file:
 
 
 # Convert simple list into a 2d array:
-def list_to_2dlist(list_of_nums):
+def bingo_cards_to_2dlist(list_of_nums):
     report_array = []
     for item in range(len(list_of_nums)):
         report_line = list_of_nums[item]
@@ -39,6 +39,8 @@ test2 = [[
     [1, 1, 0, 0, 1]]
 ]
 
+
+# Transpose columns to rows
 def array_transposition(array):
     new_array = []
     for col_num in range(len(array[0])):
@@ -61,9 +63,10 @@ def card_pivot(array):
 # Runs the bingo game by checking all bingo cards against the bingo call and returning the winning number.
 def bingo_game(array, bingo_nums):
     for call in bingo_nums:
+        break
 
 
 
 
 # card_pivot(test2)
-print(list_to_2dlist(bingo_input))
+print(bingo_input)
